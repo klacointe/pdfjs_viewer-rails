@@ -5,6 +5,12 @@ module PdfjsViewer
 
   mattr_accessor :custom_stylesheet
 
+  # When the viewer is loaded on these origins, files can be loaded
+  # from any origin, otherwise only same-origin files are allowed.
+  mattr_accessor :hosted_viewer_origins do
+    ['null', 'http://mozilla.github.io', 'https://mozilla.github.io']
+  end
+
   module Rails
     class Engine < ::Rails::Engine
       isolate_namespace PdfjsViewer
